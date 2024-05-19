@@ -14,8 +14,123 @@
         let contract;
         let account;
 
-        const contractAddress = 'YOUR_CONTRACT_ADDRESS'; // Replace with your deployed contract address
-        const contractABI = [ /* Paste your ABI here */ ];
+        const contractAddress = '0x1dcad44216bbefbe93390ce096fca40e00538ca4'; // Replace with your deployed contract address
+        const contractABI = [[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"indexed": false,
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"name": "DataSaved",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"name": "saveData",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "data",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "getData",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getDataCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]];
 
         const serialPort = new SerialPort('COM3', { baudRate: 9600 }); // Replace 'COM3' with your port
         const parser = serialPort.pipe(new Readline({ delimiter: '\n' }));
