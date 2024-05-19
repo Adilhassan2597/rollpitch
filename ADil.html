@@ -15,8 +15,123 @@
         let contract;
         let account;
 
-        const contractAddress = 'YOUR_CONTRACT_ADDRESS';
-        const contractABI = [/* Add your contract ABI here */];
+        const contractAddress = '0x310615e6944a62de3d17c6c4a530b68bce93368a';
+        const contractABI = [[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"indexed": false,
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"name": "DataSaved",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"name": "saveData",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "data",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "getData",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "int256",
+				"name": "roll",
+				"type": "int256"
+			},
+			{
+				"internalType": "int256",
+				"name": "pitch",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getDataCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]];
 
         async function connectMetaMask() {
             if (window.ethereum) {
